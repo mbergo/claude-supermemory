@@ -64,7 +64,7 @@ function saveSettings(settings) {
   ensureSettingsDir();
   const toSave = { ...settings };
   delete toSave.apiKey;
-  fs.writeFileSync(SETTINGS_FILE, JSON.stringify(toSave, null, 2));
+  fs.writeFileSync(SETTINGS_FILE, JSON.stringify(toSave, null, 2), { mode: 0o600 });
 }
 
 function getApiKey(settings, cwd) {
