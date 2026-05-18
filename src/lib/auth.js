@@ -38,6 +38,7 @@ function saveCredentials(apiKey) {
     savedAt: new Date().toISOString(),
   };
   fs.writeFileSync(CREDENTIALS_FILE, JSON.stringify(data, null, 2), { mode: 0o600 });
+  fs.chmodSync(CREDENTIALS_FILE, 0o600);
 }
 
 function clearCredentials() {
