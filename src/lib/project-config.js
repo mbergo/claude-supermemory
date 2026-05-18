@@ -37,6 +37,7 @@ function saveProjectConfig(cwd, config) {
     ...config,
   };
   fs.writeFileSync(configPath, JSON.stringify(data, null, 2), { mode: 0o600 });
+  fs.chmodSync(configPath, 0o600);
   return configPath;
 }
 
